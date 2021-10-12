@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+    .container
+        h1 Login
+        .alert.alert-danger#errorMessage(role='alert' style='display: none')
+        form.form#form(action='login/user' method='POST')
+            .mb-3 
+                label.form-label(for='username') <strong>Username</strong>
+                input#username.form-control(type='text' name='username' style='width: 300px' required)
+            .mb-3
+                label.form-label(for='password') <strong>Password</strong>
+                input#password.form-control(type='password' name='password' style='width: 300px' required)
+            button.btn.btn-success(type='submit') Login
+        script
+            include ../../client_scripts/shared.js
+            include ../../client_scripts/login.js
