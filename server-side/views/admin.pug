@@ -1,0 +1,65 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous')
+    link(rel='stylesheet' href='public/styles/admin.css', type='text/css')
+body
+    include nav.pug
+    br
+    .container
+        h1(styles='color: blue') ADMIN
+        br
+        a.btn.btn-secondary(href='http://localhost:3000/admin/newTrack') Create new track
+        h2 All songs
+        .table-overflow
+            table.table.table-success.table-striped
+                thead
+                    tr 
+                        th(scope='col') #
+                        th(scope='col') Artist Name
+                        th(scope='col') Song Title 
+                        th(scope='col') YouTube Link
+                tbody
+                    each track, index in allTracks
+                        tr
+                            th(scope='row')= index + 1
+                            td= track.artist
+                            td= track.title
+                            td= track.link
+        br
+        h2 All users
+        .table-overflow 
+            table.table.table-success.table-striped 
+                thead 
+                    tr 
+                        th(scope='col') ID 
+                        th(scope='col') Username 
+                        th(scope='col') Email 
+                        th(scope='col') Account Created On
+                        th(scope='col') Role 
+                        th(scope='col') UPDATE Role
+                        th(scope='col') DELETE
+                tbody 
+                    each user in allUsers
+                        tr
+                            th(scope='row')= user.user_id
+                            td= user.username 
+                            td= user.email 
+                            td= user.created_on
+                            if user.role_id == 1 
+                                td= 'Basic'
+                            else
+                                td= 'Admin'
+                            td
+                                -var updateUrl = 'http://localhost:3000/admin/updateRole/' + user.user_id + '/' + user.role_id
+                                form(action= updateUrl method= 'POST')
+                                    button.btn.btn-success(type='submit') UPDATE
+                            td
+                                -var deleteUrl = 'http://localhost:3000/admin/delete/' + user.user_id
+                                form(action= deleteUrl method= 'POST')
+                                    button.btn.btn-danger(type='submit') DELETE
+    script 
+        include ../../client_scripts/admin.js
+
+

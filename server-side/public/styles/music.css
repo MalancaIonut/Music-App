@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(226, 226, 226);
+}
+
+.btn {
+    margin-top: -20px;
+    float: right;
+}
+
+
+.card {
+    width: 1000px;
+    height: 140px;
+    background-color: rgb(226, 226, 226);
+}
+
+input {
+    position: relative;
+    right: -800px;
+    top: -40px;
+    background-color: rgb(226, 226, 226);
+}

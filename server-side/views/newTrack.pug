@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    .container
+        h1 New Music Track
+        form.form(action='newTrack/new' method='POST')
+            .mb-3
+                label.form-label(for='artist') <strong>Artist Name</strong>
+                input#artist.form-control(type='text' name='artist' style='width: 900px' placeholder='Artist name here' required)
+            .mb-3
+                label.form-label(for='title') <strong>Track Title</strong>
+                input#title.form-control(type='text' name='title' style='width: 900px' placeholder='Track title here' required)
+            .mb-3 
+                label.form-lable(for='link') <strong>Youtube Link</strong>
+                input#link.form-control(type='text' name='link' style='width: 900px' placeholder='Youtube link here' required)
+            button.btn.btn-success(type='submit') Create Track

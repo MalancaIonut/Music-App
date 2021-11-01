@@ -1,9 +1,13 @@
 extends layout 
 
 block content
+    include nav.pug
+    br
     .container
         h1 Signup
+        br
         .alert.alert-danger#errorMessage(role='alert' style='display: none')
+        br
         form.form#form(action='auth/signup' method='POST')
             .mb-3 
                 label.form-label(for='username') <strong>Username</strong>
@@ -11,11 +15,11 @@ block content
             .mb-3
                 label.form-label(for='email') <strong>Email</strong>
                 input#email.form-control(type='text' name='email' placeholder='world@example.com' required)
-                .form-text We'll never share your email with anyone else.
+                .form-text(style='color: black') We'll never share your email with anyone else.
             .mb-3
                 label.form-label(for='password') <strong>Password</strong>
                 input#password.form-control(type='password' name='password' required)
-                .form-text Your password must be 6-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                .form-text(style='color: black') Your password must be 6-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             button.btn.btn-success(type='submit') Submit
         script
             include ../../client_scripts/shared.js

@@ -19,10 +19,15 @@ async function handleForm(event) {
 
 	await fetch(url, fetchOptions)
 	.then(response => {
-		console.log(response);
 		if (!response.ok) {
-			return response.json().then(data => {throw new Error(data.message)})
+			return response.json().then(data => {throw new Error(data.message)});
 		}
+		response.json().then(data => {
+			if (data.id) {
+				localStorage.role_id = data.role;
+				localStorage.user_id = data.id;
+			}
+		});
 		window.location = redirectLocation; 
 	})
 	.catch((error) => {

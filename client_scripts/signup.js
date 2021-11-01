@@ -7,3 +7,7 @@ function handleFormSubmit(event) {
     handleForm(event);
 }
 
+(function loggedInOrLoggedOut() {
+    document.getElementById('login').style.display = 'block';
+}());
+

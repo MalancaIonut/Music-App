@@ -1,0 +1,31 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x' crossorigin='anonymous') 
+    link(rel='stylesheet' href='public/styles/music.css' type='text/css')
+body
+    include nav.pug
+    br
+    .container
+        h1 All Songs
+        input#search(type="text" onkeyup="search()" placeholder="Search your song...")
+        br
+        each song in songs
+            .card.mb-3#card
+                .row.g-0
+                    .col-md-3
+                        img.img-fluid.rounded-start(src="../public/images/music.jpg" alt="Music")
+                    .col-md-9
+                        .card-body
+                            h5.card-title= song.artist
+                            p.card-text= '# ' + song.title
+                            a.card-text(href= song.link) YouTube link here
+                            if votes.track_ids.includes(song.track_id)
+                                button.btn.btn-secondary VOTED
+                            else
+                                -var voteUrl = 'http://localhost:3000/musicTracks/vote/' + song.track_id 
+                                form(action= voteUrl method= 'POST')
+                                    button.btn.btn-success(type='submit') VOTE
+    script 
+        include ../../client_scripts/music.js

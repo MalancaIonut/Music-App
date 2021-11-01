@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        .container
+            a.navbar-brand(href='/') Music App
+            button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+            .collapse.navbar-collapse.justify-content-end#navbarNav
+                ul.navbar-nav
+                    li.nav-item
+                        a.nav-link.active#login(aria-current='page' href='/auth/login' style='display: none') Login
+                    li.nav-item
+                        a.nav-link.active#signup(aria-current='page' href='/auth' style='display: none') Sign up
+                    li.nav-item
+                        a.nav-link.active#allsongs(aria-current='page' href='/musicTracks' style='display: none') All songs
+                    li.nav-item
+                        a.nav-link.active#admin(aria-current='page' href='/admin' style='display: none') Admin
+                    li.nav-item
+                        a.nav-link.active#logout(aria-current='page' href='/auth/logout' style='display: none') Logout
