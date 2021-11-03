@@ -2,8 +2,17 @@ body {
     background-color: rgb(226, 226, 226);
 }
 
-.btn {
-    margin-top: -20px;
+#voted {
+    height: 100px;
+    width: 80px;
+    margin-top: -70px;
+    float: right;
+}
+
+#vote {
+    height: 100px;
+    width: 80px;
+    margin-top: -90px;
     float: right;
 }
 

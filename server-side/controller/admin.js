@@ -31,7 +31,7 @@ router.post('/newTrack/new', (req, res, next) => {
         query.addInVote(response.track_id)
         .then(response => { console.log(response); })
         .catch(error => {'Something gone wrong ! Add track in vote table'});
-        res.redirect(301, '/admin');
+        res.redirect('/admin');
     })
     .catch(error => {
         next(new Error('Something gone wrong ! Create New Music Track'));
@@ -42,7 +42,7 @@ router.post('/delete/:id', (req, res, next) => {
     query.deleteUser(req.params.id)
     .then(response => {
         console.log(response);
-        res.redirect(301, '/admin');
+        res.redirect('/admin');
     })
     .catch(error => {
         console.log(error);
@@ -54,7 +54,7 @@ router.post('/updateRole/:id/:role', (req, res, next) => {
     query.updateRole(req.params.id, req.params.role)
     .then(response => {
         console.log(response);
-        res.redirect(301, '/admin');
+        res.redirect('/admin');
     })
     .catch(error => {
         console.log(error);

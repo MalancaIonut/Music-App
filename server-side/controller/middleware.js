@@ -2,7 +2,7 @@ const pool = require('../model/admin_queries');
 
 function alreadyLoggedIn(req, res, next) {
     if (req.signedCookies.user_id) {
-        res.redirect(301, '/');
+        res.redirect('/');
     } else {
         next();
     }
@@ -12,7 +12,7 @@ function ensureLoggedIn(req, res, next) {
     if (req.signedCookies.user_id) {
         next();
     } else {
-        next(new Error('Un-Authorized ! Please Log in'));
+        res.redirect('auth/login');
     }
 }
 

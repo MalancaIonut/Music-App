@@ -43,7 +43,7 @@ router.post('/musicTracks/vote/:id', authMiddleware.ensureLoggedIn, (req, res, n
         .catch(error => {
             next(new Error('Something gone wrong ! USER VOTE' + error));
         });
-        res.redirect(301, '/musicTracks');
+        res.redirect('/musicTracks');
     })
     .catch(error => {
         next(new Error('Something gone wrong ! TRACK VOTE' + error));

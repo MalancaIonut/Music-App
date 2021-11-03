@@ -8,7 +8,7 @@ router.get('/', authMiddleware.alreadyLoggedIn, (req, res) => {
     res.render('auth');
 });
 
-router.get('/successfully',authMiddleware.alreadyLoggedIn, (req, res) => {
+router.get('/successfully', authMiddleware.alreadyLoggedIn, (req, res) => {
     res.render('message', {message: 'Successfully created account !'});
 });
 

@@ -22,10 +22,10 @@ body
                             p.card-text= '# ' + song.title
                             a.card-text(href= song.link) YouTube link here
                             if votes.track_ids.includes(song.track_id)
-                                button.btn.btn-secondary VOTED
+                                button.btn.btn-secondary#voted VOTED
                             else
                                 -var voteUrl = 'http://localhost:3000/musicTracks/vote/' + song.track_id 
                                 form(action= voteUrl method= 'POST')
-                                    button.btn.btn-success(type='submit') VOTE
+                                    button#vote.btn.btn-success(type='submit') VOTE
     script 
         include ../../client_scripts/music.js
